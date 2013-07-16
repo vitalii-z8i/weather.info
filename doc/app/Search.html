@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>class Search - Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>app/models/search.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">ActiveRecord::Base
+  
+</nav>
+
+    <!-- Included Modules -->
+<nav id="includes-section" class="section">
+  <h3 class="section-header">Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="WeatherParser.html">WeatherParser</a>
+  
+  
+  </ul>
+</nav>
+
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-calculate_data">#calculate_data</a>
+    
+    <li><a href="#method-i-get_weather">#get_weather</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./doc/README_FOR_APP.html">README_FOR_APP</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./Search.html">Search</a>
+  
+    <li><a href="./SearchesController.html">SearchesController</a>
+  
+    <li><a href="./SearchesHelper.html">SearchesHelper</a>
+  
+    <li><a href="./User.html">User</a>
+  
+    <li><a href="./WeatherParser.html">WeatherParser</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Search</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-calculate_data" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">calculate_data</span><span
+            class="method-args">(weather_data)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Counts an average weather data from given results</p>
+          
+
+          
+          <div class="method-source-code" id="calculate_data-source">
+            <pre><span class="ruby-comment"># File app/models/search.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">calculate_data</span>(<span class="ruby-identifier">weather_data</span>)
+
+  <span class="ruby-identifier">min_temp</span> = []
+  <span class="ruby-identifier">max_temp</span> = []
+  <span class="ruby-identifier">weather_types</span> = []
+
+  <span class="ruby-identifier">weather_data</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">data</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-identifier">min_temp</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">data</span>[<span class="ruby-value">:min_temp</span>].<span class="ruby-identifier">to_f</span>
+      <span class="ruby-identifier">max_temp</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">data</span>[<span class="ruby-value">:max_temp</span>].<span class="ruby-identifier">to_f</span>
+
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">data</span>[<span class="ruby-value">:weather</span>] <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+        <span class="ruby-identifier">weather_types</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">data</span>[<span class="ruby-value">:weather</span>]
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Average min/max temperature</span>
+  <span class="ruby-identifier">min_temp</span> = ( <span class="ruby-identifier">min_temp</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-value">0.0</span>){ <span class="ruby-operator">|</span><span class="ruby-identifier">sum</span>, <span class="ruby-identifier">el</span><span class="ruby-operator">|</span> <span class="ruby-identifier">sum</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">el</span> } <span class="ruby-operator">/</span> <span class="ruby-identifier">min_temp</span>.<span class="ruby-identifier">size</span> ).<span class="ruby-identifier">round</span>(<span class="ruby-value">2</span>)
+  <span class="ruby-identifier">max_temp</span> = ( <span class="ruby-identifier">max_temp</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-value">0.0</span>){ <span class="ruby-operator">|</span><span class="ruby-identifier">sum</span>, <span class="ruby-identifier">el</span><span class="ruby-operator">|</span> <span class="ruby-identifier">sum</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">el</span> } <span class="ruby-operator">/</span> <span class="ruby-identifier">max_temp</span>.<span class="ruby-identifier">size</span> ).<span class="ruby-identifier">round</span>(<span class="ruby-value">2</span>)
+
+  <span class="ruby-comment"># Most common value in weather types array</span>
+  <span class="ruby-identifier">weather</span> = <span class="ruby-identifier">weather_types</span>.<span class="ruby-identifier">group_by</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-identifier">e</span> }.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">max_by</span>(&amp;<span class="ruby-value">:size</span>).<span class="ruby-identifier">first</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">weather_types</span>.<span class="ruby-identifier">any?</span>
+
+  <span class="ruby-keyword">return</span> { <span class="ruby-identifier">min_temp</span><span class="ruby-operator">:</span> <span class="ruby-identifier">min_temp</span>, <span class="ruby-identifier">max_temp</span><span class="ruby-operator">:</span> <span class="ruby-identifier">max_temp</span>, <span class="ruby-identifier">weather</span><span class="ruby-operator">:</span> <span class="ruby-identifier">weather</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- calculate_data-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- calculate_data-method -->
+
+    
+      <div id="method-i-get_weather" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_weather</span><span
+            class="method-args">(city)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets &#39;min_temp&#39;, &#39;max_temp&#39; and &#39;weather&#39; values
+for a record</p>
+          
+
+          
+          <div class="method-source-code" id="get_weather-source">
+            <pre><span class="ruby-comment"># File app/models/search.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_weather</span>(<span class="ruby-identifier">city</span>)
+
+  <span class="ruby-identifier">city</span> = <span class="ruby-identifier">city</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">to_slug</span>.<span class="ruby-identifier">normalize</span>(<span class="ruby-identifier">transliterations</span><span class="ruby-operator">:</span> <span class="ruby-value">:russian</span>).<span class="ruby-identifier">to_s</span>
+  
+  <span class="ruby-identifier">results</span> = <span class="ruby-identifier">calculate_data</span>([<span class="ruby-identifier">xml_openweather</span>(<span class="ruby-identifier">city</span>), <span class="ruby-identifier">xml_previmeteo</span>(<span class="ruby-identifier">city</span>), <span class="ruby-identifier">xml_worldweatheronline</span>(<span class="ruby-identifier">city</span>)])
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">min_temp</span> = <span class="ruby-identifier">results</span>[<span class="ruby-value">:min_temp</span>]
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">max_temp</span> = <span class="ruby-identifier">results</span>[<span class="ruby-value">:max_temp</span>]
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">weather</span> = <span class="ruby-identifier">results</span>[<span class="ruby-value">:weather</span>]
+
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_weather-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_weather-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

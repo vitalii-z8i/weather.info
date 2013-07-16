@@ -26,7 +26,11 @@ gem 'jquery-rails'
 
 gem "haml-rails"
 
+gem "babosa"
+
 gem "nokogiri", "~> 1.6.0"
+
+gem 'enumerize'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

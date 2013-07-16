@@ -1,41 +1,41 @@
 class SearchesController < ApplicationController
-  # GET /searches
-  # GET /searches.json
-  def index
-    @searches = Search.all
-    @search = Search.new
 
+  # Home page.
+  # Provides a new search and a list of previous searches
+  def index
+    @searches = @current_user.searches.order('created_at DESC').take(5)
+    @search = Search.new
+p @current_user
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @searches }
     end
   end
 
-  # POST /searches
-  # POST /searches.json
+  # Search action.
+  # Finds weather in an entered city
   def create
+    params[:search][:user_id] = @current_user.id
     @search = Search.new(params[:search])
 
+    @search.get_weather(params[:search][:city])
+
     respond_to do |format|
+      format.js   {}
       if @search.save
-        format.html { redirect_to @search, notice: 'Search was successfully created.' }
         format.json { render json: @search, status: :created, location: @search }
       else
-        format.html { render action: "new" }
         format.json { render json: @search.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /searches/1
-  # DELETE /searches/1.json
+  # Delete one of the previous search results
   def destroy
     @search = Search.find(params[:id])
     @search.destroy
 
     respond_to do |format|
-      format.html { redirect_to root_path }
-      format.json { head :no_content }
+      format.json { head :no_content, status: :no_content }
     end
   end
 end

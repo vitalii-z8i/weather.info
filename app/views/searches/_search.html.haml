@@ -1,0 +1,19 @@
+%tr
+  - if search.id.nil?
+    %td{colspan: 4}
+      - search.city = "Empty city" if search.city = ''
+      .alert-error
+        %b= "Unable to find weather for #{search.city.capitalize}"
+  - else
+    %td
+      %b= search.city.capitalize
+      %br
+      %small= l(search.created_at, format: :short)
+    %td
+      = "Expected temperature from #{search.min_temp}° to #{search.max_temp}° C"
+    %td
+      = image_tag weather_icon_url(search)
+      %br
+      = search.weather.text
+    %td
+      = link_to 'x', search_path(search, format: :json), method:  :delete, remote:  true, data:  { confirm:  t('.confirm', default:  t("helpers.links.confirm", default:  'Are you sure?')) }, class:  'btn btn-mini btn-danger'

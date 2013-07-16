@@ -1,0 +1,9 @@
+Tue, 16 Jul 2013 00:18:06 +0300
+doc/README_FOR_APP	Wed, 10 Jul 2013 12:00:10 +0300
+app/controllers/application_controller.rb	Mon, 15 Jul 2013 01:05:36 +0300
+app/controllers/searches_controller.rb	Mon, 15 Jul 2013 23:33:24 +0300
+app/helpers/application_helper.rb	Mon, 15 Jul 2013 00:58:54 +0300
+app/helpers/searches_helper.rb	Sun, 14 Jul 2013 16:13:02 +0300
+app/helpers/weather_parser.rb	Sun, 14 Jul 2013 12:58:02 +0300
+app/models/search.rb	Tue, 16 Jul 2013 00:08:31 +0300
+app/models/user.rb	Mon, 15 Jul 2013 01:10:38 +0300

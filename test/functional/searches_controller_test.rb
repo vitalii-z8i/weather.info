@@ -11,39 +11,19 @@ class SearchesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:searches)
   end
 
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
-
   test "should create search" do
     assert_difference('Search.count') do
-      post :create, search: { user_id: @search.user_id }
+      post :create, search: { user_id: @search.user_id, city: @search.city, min_temp: @search.min_temp, max_temp: @search.max_temp, weather: @search.weather }, format: 'json'
     end
 
-    assert_redirected_to search_path(assigns(:search))
-  end
-
-  test "should show search" do
-    get :show, id: @search
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, id: @search
-    assert_response :success
-  end
-
-  test "should update search" do
-    put :update, id: @search, search: { user_id: @search.user_id }
-    assert_redirected_to search_path(assigns(:search))
+    assert_response(201)
   end
 
   test "should destroy search" do
     assert_difference('Search.count', -1) do
-      delete :destroy, id: @search
+      delete :destroy, id: @search.id, format: 'json'
     end
 
-    assert_redirected_to searches_path
+    assert_response(204)
   end
 end

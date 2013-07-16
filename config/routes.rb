@@ -4,4 +4,9 @@ Weather::Application.routes.draw do
 
   resources :searches, only: [:create, :destroy]
 
+
+  get "content/about"
+
+  get "content/sources"
+
 end

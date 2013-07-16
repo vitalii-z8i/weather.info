@@ -3,3 +3,13 @@
 
 en:
   hello: "Hello world"
+  enumerize:
+    search:
+      weather:
+        clear:          "Sunny"
+        clouds:         "Cloudy"
+        partly_cloudy:  "Sunny with clouds"
+        rain:           "Rain"
+        thunderstorm:   "Thunderstorm"
+        snow:           "Snow"
+        unknown:        "Undefined"
